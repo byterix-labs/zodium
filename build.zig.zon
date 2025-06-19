@@ -1,0 +1,20 @@
+.{
+    .name = .zodium,
+    .fingerprint = 0x92106f352a171a14,
+    .version = "0.0.0",
+    .dependencies = .{
+        .libsodium = .{
+            .url = "git+https://github.com/jedisct1/libsodium#d537f3010a4e8e4ab5afdbf782799c48d8f09272",
+            .hash = "N-V-__8AAFBJYQDvMVeQeJfmmfjK27nMEp-Ci0zDR4lIG0ej",
+        },
+        .zbench = .{
+            .url = "git+https://github.com/hendriknielaender/zBench.git#c64bb43a3e32c5c62c02058ad7247e072301708d",
+            .hash = "zbench-0.10.0-YTdc714iAQDO4lTHMnIljYHPZ5v_sNTsw75vAmO1pyT-",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
