@@ -37,7 +37,7 @@ pub fn build(b: *std.Build) void {
         .root_module = mod_zodium,
     });
 
-    mod_zodium.linkLibrary(libsodium.artifact("sodium"));
+    mod_zodium.linkLibrary(libsodium.artifact(if (target.result.isMinGW()) "libsodium-static" else "sodium")));
 
     const run_lib_unit_tests = b.addRunArtifact(lib_unit_tests);
 
@@ -60,7 +60,7 @@ pub fn build(b: *std.Build) void {
     const zbench_mod = zbench_dep.module("zbench");
     bench.root_module.addImport("zodium", mod_zodium);
     bench.root_module.addImport("zbench", zbench_mod);
-    bench.linkLibrary(libsodium.artifact("sodium"));
+    bench.linkLibrary(libsodium.artifact(if (target.result.isMinGW()) "libsodium-static" else "sodium")));
 
     const bench_install = b.addRunArtifact(bench);
     bench_step.dependOn(&bench_install.step);
